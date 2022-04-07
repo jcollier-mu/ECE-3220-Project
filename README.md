@@ -1,4 +1,4 @@
-# ECE-3220-Project
+# Schedule Planner
 Final Project for Software Development in C++ at University of Missouri-Columbia.
 
 Many Mizzou students are familiar with Schedule Planner, a tool that lets them see class schedules, compare different schedules, and even place conditions on their schedule (like no class on Friday). This is something similar! This project is a command-line interface. Users will input their schedules into the program, which will then output possible schedules.  Some options are included in the program as well, such as scheduling time constraints and making sure prerequisites are met. 
