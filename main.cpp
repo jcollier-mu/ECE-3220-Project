@@ -1,18 +1,17 @@
 //
 // Created by James Collier on 4/6/22.
 //
+#include <nlohmann/json.hpp>
 #include <iostream>
 #include <iomanip>
-#include <chrono>
-#include <sstream>
-using namespace std;
+
+using json = nlohmann::json;
 
 int main()
 {
-    std::tm tm = {};
-    std::stringstream ss;
-    ss << "12:35:34";
-    ss >> std::get_time(&tm, "%H:%M:%S");
-    cout << put_time(&tm, "%H:%M") << endl;
+
+    std::cout << std::setw(4) << json::meta() << std::endl;
+
+
     return 0;
 }
