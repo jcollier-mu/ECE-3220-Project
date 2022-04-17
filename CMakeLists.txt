@@ -3,4 +3,5 @@ project(Final_Project)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(main main.cpp)
+FILE(GLOB SOURCES *.cpp)
+add_executable(main ${SOURCES})

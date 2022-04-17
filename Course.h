@@ -6,9 +6,7 @@
 #define FINAL_PROJECT_COURSE_H
 #include <string>
 #include <vector>
-#include <nlohmann/json.hpp>
 using namespace std;
-using json = nlohmann::json;
 
 struct DaysOfWeek{
     enum days {M, Tu, W, Th, F};
@@ -21,6 +19,7 @@ struct Interval{
     int start; // 0-24, which hour class starts
     int end; // 0-24, which hour class ends
     std::vector<enum DaysOfWeek::days> whichDays;
+    void printInterval();
 };
 
 class Course {
@@ -31,6 +30,7 @@ private:
     Interval i_;
 public:
     Course(std::string CName, int CNum, std::string description, Interval i);
+    void printCourse();
 };
 
 
