@@ -1,14 +1,7 @@
 //
 // Created by James Collier on 4/6/22.
 //
-#include <nlohmann/json.hpp>
-#include <fstream>
-#include <iostream>
-#include <iomanip>
 #include "CourseFactory.h"
-#include "Course.h"
-
-using json = nlohmann::json;
 
 int main()
 {
@@ -17,5 +10,6 @@ int main()
     Course* c = factory.createCourse(file);
     c->printCourse();
 
+    factory.removeCourse(c);
     return 0;
 }

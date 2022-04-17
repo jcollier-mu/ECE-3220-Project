@@ -1,8 +1,0 @@
-{
-    "CName": "Test",
-    "CNum": 1111,
-    "description": "TestTestTest",
-    "start": 12,
-    "end": 14,
-    "whichDays": [0, 2, 4]
-}
