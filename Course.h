@@ -21,6 +21,7 @@ struct Interval{
     std::pair<unsigned short int, unsigned short int> end_hm; // 0-24 and 0-60, which hour and minute class ends
     std::vector<enum DaysOfWeek::days> whichDays;
     void printInterval();
+    bool isCompatible(Interval i2);
 };
 
 class Course {

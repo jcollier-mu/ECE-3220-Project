@@ -24,3 +24,18 @@ void Course::printCourse() {
     std::cout << "Priority: " << priority_ << std::endl;
     i_.printInterval();
 }
+
+// Two intervals are compatible if they don't fall on the same days or there is no overlap between them on the same days
+bool Interval::isCompatible(Interval i2) {
+    // assuming start_hm <= end_hm for both intervals
+    for(auto j = this->whichDays.begin(); j < this->whichDays.end(); j++) {
+        for(auto s = i2.whichDays.begin(); s < i2.whichDays.end(); s++) {
+            if(*j == *s) {
+                if ((this->start_hm <= i2.end_hm) && (this->end_hm >= i2.start_hm)) return false;
+                else return true; // if they're compatible on one day they're compatible on all of them (in this program, at least)
+            }
+        }
+    }
+
+    return true;
+}
