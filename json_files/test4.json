@@ -2,7 +2,9 @@
   "CName": "Undergraduate Research",
   "CNum": 4990,
   "description": ":D",
-  "start": 12,
-  "end": 14,
-  "whichDays": [1, 3]
+  "start_h": 12,
+  "start_m": 0,
+  "end_h": 14,
+  "end_m": 0,
+  "whichDays": [2, 4]
 }

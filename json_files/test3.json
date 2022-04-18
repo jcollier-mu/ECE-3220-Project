@@ -2,7 +2,9 @@
   "CName": "Applied Statistical Models 2",
   "CNum": 4520,
   "description": "slay",
-  "start": 11,
-  "end": 13,
+  "start_h": 11,
+  "start_m": 0,
+  "end_h": 13,
+  "end_m": 0,
   "whichDays": [1, 3]
 }

@@ -2,7 +2,9 @@
     "CName": "Software Engineering",
     "CNum": 4320,
     "description": ":,(",
-    "start": 14,
-    "end": 16,
+    "start_h": 14,
+    "start_m": 0,
+    "end_h": 15,
+    "end_m": 15,
     "whichDays": [1, 3]
 }

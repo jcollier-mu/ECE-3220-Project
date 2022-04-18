@@ -6,6 +6,7 @@
 #define FINAL_PROJECT_COURSE_H
 #include <string>
 #include <vector>
+#include <chrono>
 using namespace std;
 
 struct DaysOfWeek{
@@ -16,8 +17,8 @@ struct DaysOfWeek{
 // for now, the program will only consider classes that meet at the same times every day
 // e.g., no classes with lecture at 4 on Monday and at 11 on Thursday
 struct Interval{
-    int start; // 0-24, which hour class starts
-    int end; // 0-24, which hour class ends
+    std::pair<unsigned short int, unsigned short int> start_hm; // 0-24 and 0-60, which hour and minute class starts
+    std::pair<unsigned short int, unsigned short int> end_hm; // 0-24 and 0-60, which hour and minute class ends
     std::vector<enum DaysOfWeek::days> whichDays;
     void printInterval();
 };
@@ -28,8 +29,10 @@ private:
     int CNum_;
     std::string description_;
     Interval i_;
+    unsigned short int priority_; //1-5, if supplied allows users to build schedules based on what's most important
+    //if all course priorities=1, we just find a maximal subset of compatible intervals
 public:
-    Course(std::string CName, int CNum, std::string description, Interval i);
+    Course(std::string CName, int CNum, std::string description, Interval i, unsigned short int priority=1);
     void printCourse();
 };
 

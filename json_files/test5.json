@@ -2,7 +2,9 @@
   "CName": "Object-Oriented Programming",
   "CNum": 3330,
   "description": ">:(",
-  "start": 9,
-  "end": 14,
-  "whichDays": [5]
+  "start_h": 9,
+  "start_m": 50,
+  "end_h": 14,
+  "end_m": 0,
+  "whichDays": [4]
 }

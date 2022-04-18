@@ -19,13 +19,17 @@ Course* CourseFactory::createCourse(std::string filePath) {
 
 Course* CourseFactory::createCourse(json j) {
     Interval i;
-    i.start = j["start"];
-    i.end = j["end"];
+    i.start_hm = std::make_pair(j["start_h"], j["start_m"]);
+    i.end_hm = std::make_pair(j["end_h"], j["end_m"]);
     for(auto it = j["whichDays"].begin(); it < j["whichDays"].end(); it++){
         i.whichDays.push_back(*it);
     }
 
-    return new Course(j["CName"], j["CNum"], j["description"], i);
+    if(j["priority"] == nullptr) {
+        return new Course(j["CName"], j["CNum"], j["description"], i);
+    }else{
+        return new Course(j["CName"], j["CNum"], j["description"], i, j["priority"]);
+    }
 }
 
 void CourseFactory::removeCourse(Course *c) {

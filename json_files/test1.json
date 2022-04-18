@@ -2,7 +2,9 @@
   "CName": "Software Development in C++",
   "CNum": 3220,
   "description": ":,)",
-  "start": 13,
-  "end": 14,
+  "start_h": 13,
+  "start_m": 0,
+  "end_h": 13,
+  "end_m": 50,
   "whichDays": [0, 2]
 }

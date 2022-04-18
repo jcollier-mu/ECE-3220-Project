@@ -1,0 +1,10 @@
+{
+  "CName": "Operating Systems",
+  "CNum": 4520,
+  "description": ":/",
+  "start_h": 15,
+  "start_m": 30,
+  "end_h": 16,
+  "end_m": 45,
+  "whichDays": [1,3]
+}
