@@ -11,7 +11,8 @@ class SchedulePlanner {
 public:
     SchedulePlanner(ScheduleBuilder builder);
     void constructSchedule();
-    Schedule getSchedule() const {return builder_->getSchedule();};
+    std::vector<Schedule> getSchedules() const {return builder_->getSchedules();};
+    void writeSchedulesToFile(std::string file);
 private:
     ScheduleBuilder builder_;
 };

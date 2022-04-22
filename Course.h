@@ -35,6 +35,7 @@ private:
 public:
     Course(std::string CName, int CNum, std::string description, Interval i, unsigned short int priority=1);
     void printCourse();
+    Interval getMeetingTimes() const{return this->i_;};
 };
 
 

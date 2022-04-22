@@ -8,13 +8,17 @@
 
 // one of the implementations of ScheduleBuilder
 // is "slow", just builds a schedule by iterating through all possible schedules
+// is also a basic implementation (for now), not considering any program flags/options
 class SlowScheduleBuilder : public ScheduleBuilder {
 public:
-    Schedule getSchedule() const override{return this->schedule_;};
+    std::vector<Schedule> getSchedules() const override{return this->schedules_;};
+    void buildSchedules() override;
+    SlowScheduleBuilder(std::vector<Course> courses) : courses_(courses) {};
 
 
 private:
-    Schedule schedule_;
+    std::vector<Course> courses_; // courses to choose from when scheduling
+    std::vector<Schedule> schedules_;
 };
 
 

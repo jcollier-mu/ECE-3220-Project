@@ -9,6 +9,7 @@
 // interface that all concrete builders inherit from
 class ScheduleBuilder {
 public:
-    virtual Schedule getSchedule() const = 0;
+    virtual std::vector<Schedule> getSchedules() const = 0; // more than one schedule may be generated
+    virtual void buildSchedules() = 0;
 };
 #endif //FINAL_PROJECT_SCHEDULEBUILDER_H
