@@ -3,6 +3,7 @@
 //
 
 #include "SlowScheduleBuilder.h"
+#include <numeric>
 
 void SlowScheduleBuilder::buildSchedules() {
     // idea: iterate through many possible schedules
@@ -14,17 +15,20 @@ void SlowScheduleBuilder::buildSchedules() {
     }
     // then, slowly build up each one course schedule
     bool flag=true;
-    int count=0;
+    std::vector<int> status(schedules_.size(), 0);
     while(flag) {
+        int index=0;
         for (auto k = schedules_.begin(); k < schedules_.end(); k++) {
+            if(status[index]==1) continue;
             int initialSize = (int) k->size();
             for (auto j = courses_.begin(); j < courses_.end(); j++) {
                 if (k->isCompatibleWithSchedule(*j)) {
                     k->addCourse(*j);
                 }
             }
-            if(initialSize == (int) k->size()) count++; //increment count if schedule k is unchanged
+            if(initialSize == (int) k->size()) status[index] = 1; //change status[index] if schedule k is unchanged
+            index++;
         }
-        if(count == (int)schedules_.size()) flag=false; //end loop if all schedules remain unchanged
+        if(std::accumulate(status.begin(), status.end(), 0) == (int)schedules_.size()) flag=false; //end loop if all schedules remain unchanged
     }
 }
