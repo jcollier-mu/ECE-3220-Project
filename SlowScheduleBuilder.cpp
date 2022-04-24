@@ -4,6 +4,8 @@
 
 #include "SlowScheduleBuilder.h"
 #include <numeric>
+#include <algorithm>
+#include <random>
 
 void SlowScheduleBuilder::buildSchedules() {
     // idea: iterate through many possible schedules
@@ -14,11 +16,15 @@ void SlowScheduleBuilder::buildSchedules() {
         delete s;
     }
     // then, slowly build up each one course schedule
+    // this is not an optimal algorithm, i.e., it doesn't find all possible schedules
+    // but, I hope it gives the user a good selection of compatible, maximal schedules
     bool flag=true;
     std::vector<int> status(schedules_.size(), 0);
     while(flag) {
         int index=0;
         for (auto k = schedules_.begin(); k < schedules_.end(); k++) {
+            std::default_random_engine rng; // shuffle courses_ vector to hopefully better explore schedule space
+            std::shuffle(std::begin(courses_), std::end(courses_), rng);
             if(status[index]==1) continue;
             int initialSize = (int) k->size();
             for (auto j = courses_.begin(); j < courses_.end(); j++) {
