@@ -12,7 +12,7 @@
 // Often there will be multiple Schedules generated, which the calling program can parse and print separately
 class Schedule {
 public:
-    std::string print_schedule();
+    std::string to_string();
     bool isCompatibleWithSchedule(Course c);
     bool isValidSchedule();
     void addCourse(Course c);

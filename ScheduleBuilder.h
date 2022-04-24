@@ -11,5 +11,6 @@ class ScheduleBuilder {
 public:
     virtual std::vector<Schedule> getSchedules() const = 0; // more than one schedule may be generated
     virtual void buildSchedules() = 0;
+    virtual ~ScheduleBuilder() {};
 };
 #endif //FINAL_PROJECT_SCHEDULEBUILDER_H

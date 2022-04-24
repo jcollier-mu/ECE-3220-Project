@@ -34,6 +34,8 @@ private:
     //if all course priorities=1, we just find a maximal subset of compatible intervals
 public:
     Course(std::string CName, int CNum, std::string description, Interval i, unsigned short int priority=1);
+    std::string getName() const {return this->CName_;};
+    int getNum() const {return this->CNum_;};
     void printCourse();
     Interval getMeetingTimes() const{return this->i_;};
 };

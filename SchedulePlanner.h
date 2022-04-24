@@ -5,16 +5,18 @@
 #ifndef FINAL_PROJECT_SCHEDULEPLANNER_H
 #define FINAL_PROJECT_SCHEDULEPLANNER_H
 #include "ScheduleBuilder.h"
+#include "SlowScheduleBuilder.h"
 
 // "director" class of builder design
 class SchedulePlanner {
 public:
-    SchedulePlanner(ScheduleBuilder builder);
-    void constructSchedule();
+    SchedulePlanner(ScheduleBuilder* builder) : builder_(builder){};
+    void constructSchedules() {builder_->buildSchedules();};
     std::vector<Schedule> getSchedules() const {return builder_->getSchedules();};
     void writeSchedulesToFile(std::string file);
+    ~SchedulePlanner() {if(builder_ != nullptr) delete builder_;};
 private:
-    ScheduleBuilder builder_;
+    ScheduleBuilder *builder_;
 };
 
 
