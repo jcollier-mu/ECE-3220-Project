@@ -20,7 +20,7 @@ struct Interval{
     std::pair<unsigned short int, unsigned short int> start_hm; // 0-24 and 0-60, which hour and minute class starts
     std::pair<unsigned short int, unsigned short int> end_hm; // 0-24 and 0-60, which hour and minute class ends
     std::vector<enum DaysOfWeek::days> whichDays;
-    void printInterval();
+    void printInterval() const;
     bool isCompatible(const Interval& i2) const;
 
     // to use as key in a 'std::map' for AssignmentScheduleBuilder

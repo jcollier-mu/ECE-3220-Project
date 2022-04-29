@@ -5,5 +5,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCES Course.cpp Course.h CourseFactory.cpp CourseFactory.h
         main.cpp Schedule.cpp Schedule.h ScheduleBuilder.h SchedulePlanner.cpp
-        SchedulePlanner.h SlowScheduleBuilder.cpp SlowScheduleBuilder.h)
+        SchedulePlanner.h SlowScheduleBuilder.cpp SlowScheduleBuilder.h
+        AssignmentScheduleBuilder.cpp AssignmentScheduleBuilder.h)
 add_executable(main ${SOURCES})

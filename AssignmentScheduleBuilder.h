@@ -23,9 +23,10 @@ public:
     std::vector<Schedule> getSchedules() const override{return this->schedules_;};
     void buildSchedules() override;
     AssignmentScheduleBuilder(std::vector<Course> courses) : courses_(courses) {};
+    void printGraph();
 private:
-    std::map<Interval, std::vector<Course>> graph_; // adjacency list (sort of), where for each nonconflicting time slot there's a vector of courses to choose from
-    std::map<Interval, std::vector<Course>> buildGraph();
+    std::multimap<Interval, Course> graph_; // adjacency list (sort of), where for each nonconflicting time slot there's courses to choose from
+    void buildGraph();
     std::vector<Course> courses_; // courses to choose from when scheduling
     std::vector<Schedule> schedules_;
 };

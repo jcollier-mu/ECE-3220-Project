@@ -18,10 +18,15 @@ int main()
         try{courses.push_back(*factory.createCourse(*c));}
         catch(...){std::cout << "Error in reading file " << *c << std::endl;}
     }
-    SchedulePlanner *director = new SchedulePlanner(new SlowScheduleBuilder(courses));
-    director->constructSchedules();
-    director->writeSchedulesToFile("test.txt");
+//    SchedulePlanner *director = new SchedulePlanner(new SlowScheduleBuilder(courses));
+//    director->constructSchedules();
+//    director->writeSchedulesToFile("test.txt");
+//
+//    delete director;
 
-    delete director;
+    auto builder = new AssignmentScheduleBuilder(courses);
+    builder->buildSchedules();
+    builder->printGraph();
+    delete builder;
     return 0;
 }

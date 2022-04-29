@@ -6,6 +6,7 @@
 #define FINAL_PROJECT_SCHEDULEPLANNER_H
 #include "ScheduleBuilder.h"
 #include "SlowScheduleBuilder.h"
+#include "AssignmentScheduleBuilder.h"
 
 // "director" class of builder design
 class SchedulePlanner {

@@ -8,7 +8,7 @@
 Course::Course(std::string CName, int CNum, std::string description, Interval i, unsigned short int priority) :
 CName_(CName), CNum_(CNum), description_(description), i_(i), priority_(priority) {}
 
-void Interval::printInterval() {
+void Interval::printInterval() const{
     std::string s;
     for(auto i = whichDays.begin(); i < whichDays.end(); i++){
         s += std::to_string(*i) + " ";
