@@ -26,7 +26,7 @@ void Course::printCourse() {
 }
 
 // Two intervals are compatible if they don't fall on the same days or there is no overlap between them on the same days
-bool Interval::isCompatible(Interval i2) {
+bool Interval::isCompatible(const Interval& i2) const{
     // assuming start_hm <= end_hm for both intervals
     for(auto j = this->whichDays.begin(); j < this->whichDays.end(); j++) {
         for(auto s = i2.whichDays.begin(); s < i2.whichDays.end(); s++) {
