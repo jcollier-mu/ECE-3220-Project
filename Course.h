@@ -23,7 +23,7 @@ struct Interval{
     void printInterval() const;
     bool isCompatible(const Interval& i2) const;
 
-    // to use as key in a 'std::multimap' for AssignmentScheduleBuilder
+    // Interval comparison
     bool operator<(const Interval& i2) const{
         if(!this->isCompatible(i2)){ // if the intervals are not compatible they're "equivalent"
             return false;
