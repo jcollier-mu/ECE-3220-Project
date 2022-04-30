@@ -28,5 +28,6 @@ int main()
     builder->buildSchedules();
     builder->printGraph();
     delete builder;
+
     return 0;
 }

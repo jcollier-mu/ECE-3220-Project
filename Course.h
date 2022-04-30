@@ -17,15 +17,20 @@ struct DaysOfWeek{
 // for now, the program will only consider classes that meet at the same times every day
 // e.g., no classes with lecture at 4 on Monday and at 11 on Thursday
 struct Interval{
-    std::pair<unsigned short int, unsigned short int> start_hm; // 0-24 and 0-60, which hour and minute class starts
-    std::pair<unsigned short int, unsigned short int> end_hm; // 0-24 and 0-60, which hour and minute class ends
+    std::pair<unsigned short int, unsigned short int> start_hm; // 0-24 and 0-59, which hour and minute class starts
+    std::pair<unsigned short int, unsigned short int> end_hm; // 0-24 and 0-59, which hour and minute class ends
     std::vector<enum DaysOfWeek::days> whichDays;
     void printInterval() const;
     bool isCompatible(const Interval& i2) const;
 
-    // to use as key in a 'std::map' for AssignmentScheduleBuilder
+    // to use as key in a 'std::multimap' for AssignmentScheduleBuilder
     bool operator<(const Interval& i2) const{
-        return this->isCompatible(i2);
+        if(!this->isCompatible(i2)){ // if the intervals are not compatible they're "equivalent"
+            return false;
+        }else{
+            // if they're compatible, we need to apply some natural ordering (we'll just do start time)
+            return this->start_hm < i2.start_hm;
+        }
     }
 };
 
