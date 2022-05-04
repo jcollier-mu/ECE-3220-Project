@@ -7,6 +7,7 @@
 
 int main()
 {
+    std::cout << "Running main..." << std::endl;
     CourseFactory factory;
     std::string filePrefix = "../json_files/";
     std::vector<std::string> files;
