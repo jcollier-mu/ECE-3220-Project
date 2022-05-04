@@ -5,7 +5,7 @@
 #include "CourseFactory.h"
 #include <fstream>
 
-Course* CourseFactory::createCourse(std::string filePath) {
+std::shared_ptr<Course> CourseFactory::createCourse(std::string filePath) {
     std::ifstream ifs; json j;
     ifs.open(filePath);
     if(ifs.is_open()){
@@ -17,7 +17,7 @@ Course* CourseFactory::createCourse(std::string filePath) {
     return createCourse(j);
 }
 
-Course* CourseFactory::createCourse(json j) {
+std::shared_ptr<Course> CourseFactory::createCourse(json j) {
     Interval i;
     i.start_hm = std::make_pair(j["start_h"], j["start_m"]);
     i.end_hm = std::make_pair(j["end_h"], j["end_m"]);
@@ -26,12 +26,10 @@ Course* CourseFactory::createCourse(json j) {
     }
 
     if(j["priority"] == nullptr) {
-        return new Course(j["CName"], j["CNum"], j["description"], i);
+        auto temp = std::shared_ptr<Course>(new Course(j["CName"], j["CNum"], j["description"], i));
+        return temp;
     }else{
-        return new Course(j["CName"], j["CNum"], j["description"], i, j["priority"]);
+        auto temp = std::shared_ptr<Course>(new Course(j["CName"], j["CNum"], j["description"], i, j["priority"]));
+        return temp;
     }
-}
-
-void CourseFactory::removeCourse(Course *c) {
-    delete c;
 }

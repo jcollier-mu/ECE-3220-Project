@@ -4,30 +4,29 @@
 #include "CourseFactory.h"
 #include "SchedulePlanner.h"
 #include <iostream>
+#include <memory>
 
 int main()
 {
     CourseFactory factory;
     std::string filePrefix = "../json_files/";
     std::vector<std::string> files;
+    std::vector<std::shared_ptr<Course>> coursesPtr;
     std::vector<Course> courses;
     for(int i = 0; i < 11; i++){
         files.push_back(filePrefix + "test" + std::to_string(i) + ".json");
     }
     for(auto c = files.begin(); c < files.end(); c++){
-        try{courses.push_back(*factory.createCourse(*c));}
+        try{
+            coursesPtr.push_back(factory.createCourse(*c)); // we'll let smart pointers worry about memory
+        }
         catch(...){std::cout << "Error in reading file " << *c << std::endl;}
     }
-//    SchedulePlanner *director = new SchedulePlanner(new SlowScheduleBuilder(courses));
-//    director->constructSchedules();
-//    director->writeSchedulesToFile("test.txt");
-//
-//    delete director;
+    for(auto k=coursesPtr.begin();k<coursesPtr.end();k++){courses.push_back(*(*k));}
+    SchedulePlanner *director = new SchedulePlanner(new SlowScheduleBuilder(courses));
+    director->constructSchedules();
+    director->writeSchedulesToFile("test.txt");
 
-    auto builder = new AssignmentScheduleBuilder(courses);
-    builder->buildSchedules();
-    builder->printGraph();
-    delete builder;
-
+    delete director;
     return 0;
 }

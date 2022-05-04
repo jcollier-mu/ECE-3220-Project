@@ -6,14 +6,14 @@
 #define FINAL_PROJECT_COURSEFACTORY_H
 #include <nlohmann/json.hpp>
 #include <string>
+#include <memory>
 #include "Course.h"
 
 using json = nlohmann::json;
 class CourseFactory {
 public:
-    Course* createCourse(json j);
-    Course* createCourse(std::string filePath);
-    void removeCourse(Course* c);
+    std::shared_ptr<Course> createCourse(json j);
+    std::shared_ptr<Course> createCourse(std::string filePath);
 };
 
 
