@@ -4,7 +4,6 @@
 #include "CourseFactory.h"
 #include "SchedulePlanner.h"
 #include <iostream>
-#include <memory>
 
 int main()
 {

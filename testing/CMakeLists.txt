@@ -17,7 +17,7 @@ enable_testing()
 set(SOURCES run_tests.cpp ../Course.cpp ../Course.h ../CourseFactory.cpp ../CourseFactory.h
         ../Schedule.cpp ../Schedule.h ../ScheduleBuilder.h ../SchedulePlanner.cpp
         ../SchedulePlanner.h ../SlowScheduleBuilder.cpp ../SlowScheduleBuilder.h
-        ../AssignmentScheduleBuilder.cpp ../AssignmentScheduleBuilder.h)
+        ../AssignmentScheduleBuilder.cpp ../AssignmentScheduleBuilder.h FactoryTest.h)
 add_executable(
         run_tests
         ${SOURCES}
