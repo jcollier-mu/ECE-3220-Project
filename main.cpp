@@ -7,7 +7,7 @@
 
 int main()
 {
-    std::cout << "Running main..." << std::endl;
+    std::cout << "Building schedules..." << std::endl;
     CourseFactory factory;
     std::string filePrefix = "../json_files/";
     std::vector<std::string> files;
@@ -25,7 +25,8 @@ int main()
     for(auto k=coursesPtr.begin();k<coursesPtr.end();k++){courses.push_back(*(*k));}
     SchedulePlanner *director = new SchedulePlanner(new SlowScheduleBuilder(courses));
     director->constructSchedules();
-    director->writeSchedulesToFile("test.txt");
+    std::cout << director->schedulesToString() << std::endl;
+    std::cout << "Done." << std::endl;
 
     delete director;
     return 0;

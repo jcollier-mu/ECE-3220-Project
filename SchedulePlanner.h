@@ -15,6 +15,7 @@ public:
     void constructSchedules() {builder_->buildSchedules();};
     std::vector<Schedule> getSchedules() const {return builder_->getSchedules();};
     void writeSchedulesToFile(std::string file);
+    std::string schedulesToString();
     ~SchedulePlanner() {if(builder_ != nullptr) delete builder_;};
 private:
     ScheduleBuilder *builder_;
