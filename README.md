@@ -19,5 +19,5 @@ There is a Docker repository for this project! It can be found [here](https://hu
 
 - Pull the latest tag and run it via ```docker run jcollier01/schedule-planner:latest``` to see an example of this program in action!
 
-Otherwise, clone the repo from [https://github.com/jcollier-mu/ECE-3220-Project] and run ```cmake -S . -B build``` and ```cmake --build build```  to generate the executable file in the build directory.
+Otherwise, clone the repo from [https://github.com/jcollier-mu/ECE-3220-Project] and run ```cmake -S . -B build``` and ```cmake --build build```  to generate the ```main``` executable file in the build directory.
 This project uses GoogleTest and nlohmann/json libraries. However, due to cmake's ```FetchContent``` module, there shouldn't be any need to worry about installing these libraries.
