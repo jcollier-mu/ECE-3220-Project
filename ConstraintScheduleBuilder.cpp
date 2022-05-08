@@ -8,7 +8,7 @@ void ConstraintScheduleBuilder::buildSchedules() {
     // idea: just remove courses that are incompatible with the block and use SlowScheduleBuilder
     for(auto block = block_.begin(); block < block_.end(); block++) {
         for (auto course = courses_.begin(); course < courses_.end();) {
-            if (course->getMeetingTimes().isCompatible(block)) {
+            if (course->getMeetingTimes().isCompatible(*block)) {
                 course++;
             } else {
                 course = courses_.erase(course);

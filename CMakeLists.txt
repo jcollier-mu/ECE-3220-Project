@@ -12,6 +12,7 @@ FetchContent_MakeAvailable(json)
 set(SOURCES Course.cpp Course.h CourseFactory.cpp CourseFactory.h
         main.cpp Schedule.cpp Schedule.h ScheduleBuilder.h SchedulePlanner.cpp
         SchedulePlanner.h SlowScheduleBuilder.cpp SlowScheduleBuilder.h
-        AssignmentScheduleBuilder.cpp AssignmentScheduleBuilder.h)
+        MessageHandler.cpp MessageHandler.h ConstraintScheduleBuilder.cpp
+        ConstraintScheduleBuilder.h)
 add_executable(main ${SOURCES})
 target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)

@@ -6,6 +6,7 @@
 #define FINAL_PROJECT_MESSAGEHANDLER_H
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 
 // Singleton-type class that handles all messages and error logs displayed to the user during program execution
@@ -25,12 +26,12 @@ public:
 
     void printUsage();
     void printMessage(std::string msg);
-    void addError();
+    void addError(std::string error);
     void printErrorLog();
 
 private:
     static MessageHandler* instance;
-    MessageHandler(){}
+    MessageHandler(){error_log = "";}
     std::string error_log;
 };
 
