@@ -5,8 +5,8 @@
 #include "Course.h"
 #include "iostream"
 
-Course::Course(std::string CName, int CNum, std::string description, Interval i, unsigned short int priority) :
-CName_(CName), CNum_(CNum), description_(description), i_(i), priority_(priority) {}
+Course::Course(std::string CName, int CNum, std::string description, Interval i) :
+CName_(CName), CNum_(CNum), description_(description), i_(i) {}
 
 void Interval::printInterval() const{
     std::string s;
@@ -21,7 +21,6 @@ void Course::printCourse() {
     std::cout << "Name: " << CName_ << std::endl;
     std::cout << "Number: " << CNum_ << std::endl;
     std::cout << "Description: " << description_ << std::endl;
-    std::cout << "Priority: " << priority_ << std::endl;
     i_.printInterval();
 }
 

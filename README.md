@@ -5,12 +5,15 @@ Many Mizzou students are familiar with Schedule Planner, a tool that lets them s
 
 ***List of Features/Functionalities:***
 - Users will input courses as .json files that will be parsed by the program. 
-  - Includes course name, number, description, section times, and priority, if applicable.
+  - Includes course name, number, description, and section times.
 - The program will output possible schedules to .txt files along with detailed error messages to the console where applicable.
   - Where errors occur, program usage should be displayed as well.
 - Options for course scheduling will be provided on the command line as flags.
   - Options include time constraints/breaks (e.g., no schedules with class before 10am or after 3pm, lunch breaks, etc.)
   - Day constraints (e.g., no class on Friday)
+  - Output file options
+  - Input file specifications
+  - Print program usage
 
 
 ## Building this Program

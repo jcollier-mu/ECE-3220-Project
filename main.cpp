@@ -3,31 +3,42 @@
 //
 #include "CourseFactory.h"
 #include "SchedulePlanner.h"
-#include <iostream>
+#include "MessageHandler.h"
+#include <unistd.h>
 
-int main()
+int main(int argc, char* argv[])
 {
-    std::cout << "Building schedules..." << std::endl;
-    CourseFactory factory;
-    std::string filePrefix = "../json_files/";
-    std::vector<std::string> files;
-    std::vector<std::shared_ptr<Course>> coursesPtr;
-    std::vector<Course> courses;
-    for(int i = 0; i < 11; i++){
-        files.push_back(filePrefix + "test" + std::to_string(i) + ".json");
-    }
-    for(auto c = files.begin(); c < files.end(); c++){
-        try{
-            coursesPtr.push_back(factory.createCourse(*c)); // we'll let smart pointers worry about memory
-        }
-        catch(...){std::cout << "Error in reading file " << *c << std::endl;}
-    }
-    for(auto k=coursesPtr.begin();k<coursesPtr.end();k++){courses.push_back(*(*k));}
-    SchedulePlanner *director = new SchedulePlanner(new SlowScheduleBuilder(courses));
-    director->constructSchedules();
-    std::cout << director->schedulesToString() << std::endl;
-    std::cout << "Done." << std::endl;
+    opterr =  0;
+    int c;
 
-    delete director;
+    while((c = getopt(argc, argv, "b:d:o:i:h")) != -1) { // read and parse command-line options
+        switch (c) {
+            case 'i':
+                // Read files, create courses vector
+            case 'h':
+                // MessageHandler->printUsage();
+                break;
+            case 'b':
+                // parse command-line interval here and push back to an interval vector
+                break;
+            case 'o':
+                // Specify output filename, default is output.txt
+                break;
+            case 'd':
+                // parse command-line interval and push back to an interval vector
+            case '?':
+//                cout << "Make sure valid options are passed with the correct arguments!\n" << endl;
+                // MessageHandler->printUsage();
+                break;
+            default:
+//                cout << "Default switch used, reevaluate conditions\n" << endl;
+                return 1;
+        }
+    }
+
+    // after all options are read, create the builder, build the schedules, and write the schedules to file
+
+
+
     return 0;
 }

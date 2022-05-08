@@ -25,11 +25,6 @@ std::shared_ptr<Course> CourseFactory::createCourse(json j) {
         i.whichDays.push_back(*it);
     }
 
-    if(j["priority"] == nullptr) {
-        auto temp = std::shared_ptr<Course>(new Course(j["CName"], j["CNum"], j["description"], i));
-        return temp;
-    }else{
-        auto temp = std::shared_ptr<Course>(new Course(j["CName"], j["CNum"], j["description"], i, j["priority"]));
-        return temp;
-    }
+    auto temp = std::shared_ptr<Course>(new Course(j["CName"], j["CNum"], j["description"], i));
+    return temp;
 }

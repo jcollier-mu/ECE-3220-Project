@@ -12,10 +12,10 @@ class ConstraintScheduleBuilder : public ScheduleBuilder{
 public:
     std::vector<Schedule> getSchedules() const override{return this->schedules_;};
     void buildSchedules() override;
-    ConstraintScheduleBuilder(std::vector<Course> courses, Interval block) : courses_(courses), block_(block) {}
+    ConstraintScheduleBuilder(std::vector<Course> courses, std::vector<Interval> block) : courses_(courses), block_(block) {}
 private:
     std::vector<Course> courses_;
-    Interval block_;
+    std::vector<Interval> block_;
     std::vector<Schedule> schedules_;
 
 };

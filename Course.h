@@ -40,10 +40,9 @@ private:
     int CNum_;
     std::string description_;
     Interval i_;
-    unsigned short int priority_; //1-5, if supplied allows users to build schedules based on what's most important
-    //if all course priorities=1, we just find a maximal set of compatible intervals
+
 public:
-    Course(std::string CName, int CNum, std::string description, Interval i, unsigned short int priority=1);
+    Course(std::string CName, int CNum, std::string description, Interval i);
     std::string getName() const {return this->CName_;};
     int getNum() const {return this->CNum_;};
     void printCourse();

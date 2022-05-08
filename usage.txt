@@ -1,0 +1,20 @@
+******** PROGRAM USAGE ********
+The -h option is 'help'; it prints the program usage.
+
+Any of the below options can be used in the same invocation, they are compatible.
+
+The -b [block] option is for specifying a break, or a period in which the user does not wish to have any classes. Breaks are specified by their start time, end time, and by which days of the week they fall on.
+For example: ./main -b "12:00-13:45 12345" specifies a break from 12:00-1:45pm on every day of the week.
+./main -b "16:00-18:00 135" specifies a break from 4-6pm on Monday, Wednesday, and Friday.
+Note that the entire break specification must be enclosed within quotes.
+
+The -d [day] option is for specifying whole days for which the user does not wish to have any classes.
+For example: ./main -d 12 specifies no class on Monday or Tuesday.
+./main -d 5 would be for no class on Friday.
+
+
+Input and Output Options
+
+The -o [filename] option specifies that the output should be written to a .txt file with the given filename. If this option is not specified, the schedules are printed to output.txt in the build directory.
+
+The -i [filename] option specifies which .json files are to be read into the program. By default, all files in the json_files directory are read.
