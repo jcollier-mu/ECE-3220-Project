@@ -20,7 +20,7 @@ Many Mizzou students are familiar with Schedule Planner, a tool that lets them s
 
 There is a Docker repository for this project! It can be found [here](https://hub.docker.com/repository/docker/jcollier01/schedule-planner/general).
 
-- Pull the latest tag and run it via ```docker run jcollier01/schedule-planner:latest``` to see an example of this program in action!
+- Pull the latest tag and run it via ```docker run -it jcollier01/schedule-planner:latest``` to see an example of this program in action! Use the ```-it``` option to run the docker image application with whatever options you'd like. The json_files included in the docker image are those in json_files/
 
 Otherwise, clone the repo from [https://github.com/jcollier-mu/ECE-3220-Project] and run ```cmake -S . -B build``` and ```cmake --build build```  to generate the ```main``` executable file in the build directory.
 This project uses GoogleTest and nlohmann/json libraries. However, due to cmake's ```FetchContent``` module, there shouldn't be any need to worry about installing these libraries.

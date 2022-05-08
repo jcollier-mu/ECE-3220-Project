@@ -9,5 +9,3 @@ RUN cmake -S . -B build
 RUN cmake --build build
 
 WORKDIR build/
-
-CMD [ "./main" ]
