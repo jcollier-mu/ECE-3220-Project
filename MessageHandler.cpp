@@ -28,6 +28,7 @@ void MessageHandler::addError(std::string error) {
 }
 
 void MessageHandler::printErrorLog() {
+    if(this->error_log.empty()) return;
     this->printMessage("Summary of Runtime Errors and Exceptions:\n");
     this->printMessage(error_log);
 }

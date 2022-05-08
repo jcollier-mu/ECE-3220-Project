@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
                     try{courses.push_back(*factory.createCourse(j));}
                     catch(std::runtime_error &r){
                         msg->printMessage(r.what());
-                        msg->addError(r.what() + "in -i [filename]"); // will throw an exception if a file cannot be opened, for instance
+                        msg->addError(r.what()); // will throw an exception if a file cannot be opened, for instance
                     }
                 }
                 break;
