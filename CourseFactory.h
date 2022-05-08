@@ -12,7 +12,7 @@
 using json = nlohmann::json;
 class CourseFactory {
 public:
-    std::shared_ptr<Course> createCourse(json j);
+    std::shared_ptr<Course> createCourse(json j); // return std::shared_ptr to avoid memory headaches
     std::shared_ptr<Course> createCourse(std::string filePath);
 };
 
