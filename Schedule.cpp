@@ -8,12 +8,12 @@
 #include <algorithm>
 #include <map>
 
-bool Schedule::isCompatibleWithSchedule(Course c) {
+bool Schedule::isCompatibleWithSchedule(Interval i) {
     if(schedule_.empty()) return true;
     else{
         bool flag;
         for(auto course = schedule_.begin(); course < schedule_.end(); course++){
-            flag = course->getMeetingTimes().isCompatible(c.getMeetingTimes());
+            flag = course->getMeetingTimes().isCompatible(i);
             if(!flag) return flag;
         }
     }

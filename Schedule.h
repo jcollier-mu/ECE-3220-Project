@@ -13,7 +13,7 @@
 class Schedule {
 public:
     std::string to_string();
-    bool isCompatibleWithSchedule(Course c);
+    bool isCompatibleWithSchedule(Interval i);
     bool isValidSchedule();
     void addCourse(Course c);
     Schedule(std::vector<Course> schedule) : schedule_(schedule){};

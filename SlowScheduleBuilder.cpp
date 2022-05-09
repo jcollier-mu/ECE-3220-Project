@@ -30,7 +30,7 @@ void SlowScheduleBuilder::buildSchedules() {
             if(status[index]==1) continue;
             int initialSize = (int) k->size();
             for (auto j = courses_.begin(); j < courses_.end(); j++) {
-                if (k->isCompatibleWithSchedule(*j)) {
+                if (k->isCompatibleWithSchedule(j->getMeetingTimes())) {
                     k->addCourse(*j);
                 }
             }
