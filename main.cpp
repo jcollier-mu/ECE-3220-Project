@@ -133,6 +133,10 @@ Interval parseInterval(std::string interval_string) {
         msg->printUsage();
         msg->addError("Exception in parseInterval()");
     }
+    if(i.start_hm > i.end_hm){ // it's easy to make the mistake of saying "12:30-1:45" instead of "12:30-13:45"
+        msg->addError("Error in ParseInterval()...\nplease ensure class meeting times are correct! Recall that hours are represented from 0-23.");
+        msg->printUsage();
+    }
     return i;
 
 }
