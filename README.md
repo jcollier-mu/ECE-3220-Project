@@ -24,3 +24,14 @@ There is a Docker repository for this project! It can be found [here](https://hu
 
 Otherwise, clone the repo from [https://github.com/jcollier-mu/ECE-3220-Project] and run ```cmake -S . -B build``` and ```cmake --build build```  to generate the ```main``` executable file in the build directory.
 This project uses GoogleTest and nlohmann/json libraries. However, due to cmake's ```FetchContent``` module, there shouldn't be any need to worry about installing these libraries.
+
+## Design Patterns and Program Implementation
+
+Schedule Planner takes advantage of several design patterns learned in class to read in Courses, build Schedules, output error messages to users, and more.
+
+- The factory method design pattern is used to create Course objects while reading them from .json files.
+- The builder design pattern is used to build Schedules.
+  - The SchedulePlanner class decides which concrete builder class (SlowScheduleBuilder or ConstraintScheduleBuilder) to use to create schedules. 
+  - The concrete builders build the schedules that are then accessed by the SchedulePlanner with methods for printing them, writing them to files, etc.
+  - The strengths of this design pattern are how easy it is to incorporate new kinds of builder classes into the program.
+- The singleton design method is used to keep track of error logs and is in charge of all messages displayed to the user.
